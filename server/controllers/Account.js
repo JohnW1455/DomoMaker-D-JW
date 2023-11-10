@@ -4,10 +4,10 @@ const { Account } = models;
 
 const loginPage = (req, res) => res.render('login');
 
-const logout = (req, res) =>  {
+const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
-}
+};
 
 const login = (req, res) => {
   const username = `${req.body.username}`;
@@ -48,7 +48,8 @@ const changePass = async (req, res) => {
     }
 
     const hash = await Account.generateHash(pass2);
-    account.password = hash;
+    const accountVar = account;
+    accountVar.password = hash;
 
     await account.save();
     req.session.account = Account.toAPI(account);
@@ -56,7 +57,7 @@ const changePass = async (req, res) => {
     req.session.destroy();
     return res.json({ redirect: '/login' });
   });
-} 
+};
 
 const signup = async (req, res) => {
   const username = `${req.body.username}`;
