@@ -50,7 +50,7 @@ nav:nth-child(1) {
 .domoForm {
     border: 2px solid #338acc;
     height: 35px;
-    width: 700px;
+    width: 100%;
     margin-top:0px;
     padding-top:10px;
     background-color: #55acee;
@@ -59,7 +59,7 @@ nav:nth-child(1) {
 }
 
 .domoForm label {
-    display: inline-block;
+    /* display: inline-block; */
     width: 75px;
     margin-left: 10px;
     font-size: 1.2em;
@@ -75,6 +75,7 @@ nav:nth-child(1) {
     transition: background-color 0.4s ease;
     display: inline;
     width: 90px;
+    margin-left: 5%;
     background-color: #55acee;
     border-radius: 2px;
     color: white;
@@ -91,10 +92,12 @@ nav:nth-child(1) {
 }
 
 .mainForm {
-    height: 300px;
+    /* height: 300px; */
     width: 350px;
     margin: 0 auto;
-    padding-top: 350px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
     font-size: 1.2em;
 }
 
@@ -104,7 +107,7 @@ nav:nth-child(1) {
 
 .mainForm label {
     display: inline-block;
-    width: 100px;
+    width: 150px;
     margin-right: 10px;
     text-align: right;
     font-size: 1.2em;
@@ -116,12 +119,13 @@ nav:nth-child(1) {
     text-align: center;
     margin: 0 auto;
     margin-top: 14px;
-    font-size: 1.2em;
-    width: 100px;
+    font-size: 1em;
+    min-width: 80px;
+    width: fit-content;
     background-color: #55acee;
     border-radius: 2px;
     border-color: #66acee;
-    padding: 3px 0px;
+    padding: 3px 4px;
     color: white;
     text-decoration: none;
 }
@@ -135,7 +139,7 @@ nav:nth-child(1) {
     background-color: #338acc;
 }
 
-#user, #pass, #pass2 {
+#user, #pass, #pass2, #pass3 {
     text-align: center;
     font-size: 1.1em;
     width: 180px;
@@ -193,7 +197,7 @@ nav:nth-child(1) {
 }
 
 #domos {
-    width: 40%;
+    width: 50%;
     min-width: 400px;
     border: 2px solid #55acee;
     border-radius: 4px;
@@ -241,18 +245,27 @@ h3.emptyDomo {
 
 h3.domoName {
     float:left;
-    width: 200px;
+    width: fit-content;
     font-weight: bold;
-    padding-left: 65px;
+    /* padding-left: 65px; */
     font-size: 1.5em;
 }
 
 h3.domoAge {
-    float:right;
-    text-align: left;
-    width: 100px;
+    /* float:left; */
+    /* text-align: left; */
+    width: fit-content;
     font-weight: bold;
-    padding-right: 40px;
+    /* padding-right: 40px; */
+    font-size: 1.5em;
+}
+
+h3.domoColor {
+    float:left;
+    /* text-align: left; */
+    width: fit-content;
+    font-weight: bold;
+    /*padding-right: 40px;*/
     font-size: 1.5em;
 }
 

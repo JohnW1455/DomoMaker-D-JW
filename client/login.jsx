@@ -82,6 +82,7 @@ const SignupWindow = (props) => {
 const init = () => {
     const loginButton = document.getElementById('loginButton');
     const signupButton = document.getElementById('signupButton');
+    const changePassButton = document.getElementById('changePassButton');
 
     loginButton.addEventListener('click', (e) => {
         e.preventDefault();

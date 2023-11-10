@@ -28,6 +28,36 @@ const login = (req, res) => {
   });
 };
 
+const changePass = async (req, res) => {
+  const username = `${req.body.username}`;
+  const pass = `${req.body.pass}`;
+  const pass2 = `${req.body.pass2}`;
+  const pass3 = `${req.body.pass3}`;
+
+  if (!username || !pass || !pass2 || !pass3) {
+    return res.status(400).json({ error: 'All fields and required!' });
+  }
+
+  if (pass2 !== pass3) {
+    return res.status(400).json({ error: 'New passwords do not match!' });
+  }
+
+  return Account.authenticate(username, pass, async (err, account) => {
+    if (err || !account) {
+      return res.status(401).json({ error: 'Wrong username or password!' });
+    }
+
+    const hash = await Account.generateHash(pass2);
+    account.password = hash;
+
+    await account.save();
+    req.session.account = Account.toAPI(account);
+
+    req.session.destroy();
+    return res.json({ redirect: '/login' });
+  });
+} 
+
 const signup = async (req, res) => {
   const username = `${req.body.username}`;
   const pass = `${req.body.pass}`;
@@ -61,4 +91,5 @@ module.exports = {
   login,
   logout,
   signup,
+  changePass,
 };
